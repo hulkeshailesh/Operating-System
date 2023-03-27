@@ -1,0 +1,42 @@
+What is Operating System ?
+Ans: An operating system or OS is a software program that enables the computer hardware to communicate and operate with the computer software. 
+Without a computer operating system, a computer and software programs would be useless. 
+
+C:Drive
+-------
+Users : all logged in users are presents
+WINDOWS: working folder in OS, folders like Logs/minidumps are present
+Program Files: where all the software related informations
+
+Task Manager
+------------
+CPU/Memory/Processes/login users/Performance/APPs History/Startup/Services
+
+RDP : #mstsc : to take the Remote Desktop Connection
+
+Commands to practice on command prompts:
+------------------------------------------
+#date : to view the current date of the system
+#systeminfo : to display all the system information
+#SET : to list all the Environment variable
+#hostname : to display the hostname
+#ping : to check the hostname availibility over network
+#nslookup <hostname> : to check the FQDNS
+#cd : change directory
+#cls : clear screen
+#help 
+#type <filename> : to view the contents of the file
+#type nul > <filename> : to create the empty file
+#copy con <filename> : to write the content into the file
+#echo " " : to disply echo message
+#echo <content> > filename : to create a file with content
+#del <filename> : to delete the file permanently
+#erase <filename> : like del (to delete the file permanently)
+#dir : to list the files and folders from current directory
+#copy source_file_name sample_file_copy : to copy the file
+#move source destination : to rename the files
+#rd/rmdir : to remove the file/directory
+#md/mkdir : to create new directory
+#md <path>
+
+#path : to display path variables
