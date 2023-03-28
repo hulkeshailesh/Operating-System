@@ -1,0 +1,70 @@
+Operating system:
+-----------------
+An operating system or OS is a software program that enables the computer hardware to communicate and operate with the computer software. 
+Without a computer operating system, a computer and software programs would be useless.
+
+An operating system (sometimes abbreviated as "OS") is the program that, after being initially loaded into the computer by a boot program, 
+manages all the other programs in a computer. The other programs are called applications or application programs. 
+The application programs make use of the operating system by making requests for services through a defined application program interface (API). 
+In addition, users can interact directly with the operating system through a user interface such as a command language or a graphical user interface (GUI).
+
+An operating system performs these services for applications:
+ In a multitasking operating system where multiple programs can be running at the same time, 
+the operating system determines which applications should run in what order and 
+how much time should be allowed for each application before giving another application a turn.
+ It manages the sharing of internal memory among multiple applications.
+ It handles input and output to and from attached hardware devices, such as hard disks, printers, and dial-up ports.
+ It sends messages to each application or interactive user (or to a system operator) about the status of operation and any errors that may have occurred.
+ It can offload the management of what are called batch jobs (for example, printing) so that the initiating application is freed from this work.
+ On computers that can provide parallel processing, an operating system can manage how to divide the program so that it runs on more than one processor at a time.
+
+Examples of computer operating systems
+ Redhat – Very popular Linux operating system from Redhat
+ Microsoft Windows - PC and IBM compatible operating system. Microsoft Windows is the most commonly found and used operating system in PCs
+ Apple MacOS - Apple computer operating system. The only Apple computer operating system.
+ Ubuntu Linux - A popular variant of Linux used with PC and IBM compatible computers.
+ Google Android - operating system used with Android compatible phones.
+ iOS - Operating system used with the Apple iPhone.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+History of Unix/Linux:
+-----------------------
+1965 Bell Laboratories joins with MIT and General Electric in the development effort for the new operating system, Multics, 
+which would provide multi-user, multi-processor, and multi-level (hierarchical) file system, among its many forward-looking features.
+
+1969 AT&T was unhappy with the progress and drops out of the Multics project. 
+Some of the Bell Labs programmers who had worked on this project, Ken Thompson, Dennis Ritchie, Rudd Canaday, and 
+Doug McIlroy designed and implemented the first version of the Unix File System on a PDP-7 along with a few utilities. 
+It was given the name UNIX by Brian Kernighan as a pun on Multics.
+
+1971 The system now runs on a PDP-11, with 16Kbytes of memory, including 8Kbytes for user programs and a 512Kbyte disk.
+
+Its first real use is as a text processing tool for the patent department at Bell Labs. 
+That utilization justified further research and development by the programming group. 
+UNIX caught on among programmers because it was designed with these features:
+• programmers environment
+• simple user interface
+• simple utilities that can be combined to perform powerful functions
+• hierarchical file system
+• simple interface to devices consistent with file format
+• multi-user, multi-process system
+• architecture independent and transparent to the user.
+
+1973 Unix is re-written mostly in C, a new language developed by Dennis Ritchie. 
+Being written in this high-level language greatly decreased the effort needed to port it to new machines.
+1974 Thompson and Ritchie publish a paper in the Communications of the ACM describing the new Unix OS. 
+This generates enthusiasm in the Academic community which sees a potentially great teaching tool for studying programming systems development. 
+Since AT&T is prevented from marketing the product due to the 1956 Consent Decree they license it to Universities for educational purposes and to commercial entities.
+1977 There are now about 500 Unix sites world-wide.
+1980 BSD 4.1 (Berkeley Software Development)
+1983 SunOS, BSD 4.2, SysV
+1984 There are now about 100,000 Unix sites running on many different hardware platforms, of vastly different capabilities.
+1988 AT&T and Sun Microsystems jointly develop System V Release 4 (SVR4). This would later be developed into UnixWare and Solaris 2.
+1993 Novell buys UNIX from AT&T
+1994 Novell gives the name "UNIX" to X/OPEN
+1995 Santa Cruz Operations buys UnixWare from Novell. Santa Cruz Operations and Hewlett-Packard announce that they will jointly develop a 64-bit version of Unix.
+1996 International Data Corporation forecasts that in 1997 there will be 3 million Unix systems shipped world-wide.
+
+
+
