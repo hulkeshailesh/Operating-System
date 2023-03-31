@@ -21,7 +21,7 @@ What is FileSystem ?
 A file system is a process of managing how and where data on a storage disk, which is also referred to as file management or FS.
 It is a logical disk component that compresses files separated into groups, which is known as directories.
 
-Other defination of the file:
+Other defination of the filesystem:
 ----------------------------
 What are filesystems?
 A filesystem is the methods and data structures that an operating system uses to keep track of files on a disk or partition; 
