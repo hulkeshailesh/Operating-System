@@ -1,0 +1,79 @@
+What is file ?
+A file is a collection of related information that is recorded on secondary storage. 
+A File is a collection of logically related entities.
+From user’s perspective a file is the smallest allotment of logical secondary storage
+The name  of the file is divided into two parts as shown below: 
+1. name
+2. extension, separated by a period.
+
+File Attributes:
+----------------
+Name: It is the only information stored in a human-readable form.
+Identifier: Every file is identified by a unique tag number within a file system known as an identifier.
+Location: Points to file location on device.
+Type: This attribute is required for systems that support various types of files.
+Size. Attribute used to display the current file size.
+Protection. This attribute assigns and controls the access rights of reading, writing, and executing the file.
+Time, date and security: It is used for protection, security, and also used for monitoring
+
+
+What is FileSystem ?
+A file system is a process of managing how and where data on a storage disk, which is also referred to as file management or FS.
+It is a logical disk component that compresses files separated into groups, which is known as directories.
+
+Other defination of the file:
+----------------------------
+What are filesystems?
+A filesystem is the methods and data structures that an operating system uses to keep track of files on a disk or partition; 
+that is, the way the files are organized on the disk. 
+The word is also used to refer to a partition or disk that is used to store the files or the type of the filesystem. 
+Thus, one might say ``I have two filesystems'' meaning one has two partitions on which one stores files, 
+or that one is using the ``extended filesystem'', meaning the type of the filesystem.
+
+
+Linux File System:
+-------------------
+A file system is a logical collection of files on a partition or disk. A partition is a container for information and can span an entire hard drive if desired.
+
+Your hard drive can have various partitions which usually contains only one file system, such as one file system housing the / file system or 
+another containing the /home file system.
+
+One file system per partition allows for the logical maintenance and management of differing file systems.
+
+Everything in Linux is considered to be a file, including physical devices such as DVD-ROMs, USB devices, floppy drives, and so forth.
+
+Directory Structure:
+-------------------
+Linux uses a hierarchical file system structure, much like an upside-down tree, with root (/) at the base of the file system and 
+all other directories spreading from there.
+
+A LINUX filesystem is a collection of files and directories that has the following properties:
+----------------------------------------------------------------------------------------------
+It has a root directory (/) that contains other files and directories.
+Each file or directory is uniquely identified by its name, the directory in which it resides, and a unique identifier, typically called an inode.
+By convention, the root directory has an inode number of 2 and the lost+found directory has an inode number of 3. Inode numbers 0 and 1 are not used. 
+File inode numbers can be seen by specifying the -i option to ls command.
+It is self contained. There are no dependencies between one filesystem and any other.
+
+
+File Permission:
+-----------------
+Permission can be divided into three parts: Owner, Group, Other
+r: read permission
+w: write permission
+x: execute permission
+
+Octal values are used to represent permissions.
+4 -> read permission
+2 -> write permission
+1 -> execute permission
+
+Example: If a file have 764 permission it means owner can do all operation on file, 
+group can do read and write operation on file and other can read only the file
+
+Interview Questions:
+1. What is file in Linux OS?
+2. What is the FileSystem in Linux OS?
+3. What is difference between FILE and FILESYSTEM ?
+4. How you will restrict the Other users from modifing the file ?
+5. How you will allow all the group member to access the file ?
