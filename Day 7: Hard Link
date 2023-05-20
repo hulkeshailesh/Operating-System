@@ -1,0 +1,55 @@
+Link:
+- Link is a pointer to a file or directory.
+
+Hard link
+Soft link (symboic link)
+
+Hard Link:
+Every file on the linux filesystem starts with a single hard link.
+The link is between the filename and the actual data stored on the filesystem.
+
+root@L014LPF2VD475:/home/devops/harshada# cat harsh_profile.txt
+This is Harshada, Completed B.E. in IT, Currently learning Linux.
+root@L014LPF2VD475:/home/devops/harshada#
+root@L014LPF2VD475:/home/devops/harshada# ls -ltra
+total 12
+-rw-r--r-- 1 root   root     66 May 20 11:43 harsh_profile.txt
+
+By default, when we create a file on filesystem, it will create a single hardlink.
+
+Hard link created: 
+Syntax: ln original_filename link_filename
+
+root@L014LPF2VD475:/home/devops/harshada# ln harsh_profile.txt /tmp/harsh_hardlink.txt
+
+Link count increase by 1 : i.e. now link count is 2.
+root@L014LPF2VD475:/home/devops/harshada# ls -ld /tmp/harsh_hardlink.txt
+-rw-r--r-- 2 root root 66 May 20 11:43 /tmp/harsh_hardlink.txt
+root@L014LPF2VD475:/home/devops/harshada#
+root@L014LPF2VD475:/home/devops/harshada# ls -lt
+total 4
+-rw-r--r-- 2 root root 66 May 20 11:43 harsh_profile.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+root@L014LPF2VD475:/home/devops/harshada# cat /tmp/harsh_hardlink.txt
+This is Harshada, Completed B.E. in IT, Currently learning Linux.
+root@L014LPF2VD475:/home/devops/harshada#
+
+- When changes are made to one filename, the other reflects those changes.
+- The permission, link count, ownwership, timestamp and the file content are 
+the exact same.
+- If the original file is deleted, the data still exists under the secondary hardlink.
+- The data is only removed from your drive when all the links to the data have been
+removed.
+
+Inode : Address of file located on storage media.
+root@L014LPF2VD475:/home/devops/harshada# ls -li harsh_profile.txt /tmp/harsh_hardlink.txt
+29391 -rw-r--r-- 2 root root 133 May 20 12:02 /tmp/harsh_hardlink.txt
+29391 -rw-r--r-- 2 root root 133 May 20 12:02 harsh_profile.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+In Hardlink, files shared same inode values, hence these files are identical data.
+
+Hard Link Limitation:
+It can only be created for regular files (not directories or special files).
+Also, Hard Link cannot span multiple filesystem.
