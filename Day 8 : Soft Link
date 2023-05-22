@@ -1,0 +1,75 @@
+Softline or Symbolic Link:
+
+- Commonly referred to as symbolic links
+- Soft links link together non-regular and regular files. 
+- They can also span multiple filesystems. 
+- By definition, a soft link is not a standard file, 
+but a special file that points to an existing file.
+
+---
+
+Hard Link:
+File created (Original File) - hard linked created (hardlinked file) 
+If Original file deleted, still we can access the content of file 
+from hardlinked created file
+
+Why ?
+because, in hard link, file shares the same inode (address).
+
+Soft Link:
+File created (Original File) - Soft linked created (hardlinked file) 
+If Original file deleted, you can't access the content of original file
+from softlinked file.
+
+SoftLink:
+If Original file renamed, then
+
+The content of the file could not be found because the soft link points to the name,
+that was changed and not to the content.
+
+Create two empty files and add content to it.
+# touch cat.txt
+# touch dog.txt
+
+Created hardlink for cat.txt and softlink for dog.txt
+# ln cat.txt cat_harlink.txt
+# ln -s dog.txt dog_softlink.txt
+
+root@L014LPF2VD475:/home/devops/harshada# ls -ltr
+>> Created Files cat.txt and dog.txt
+>> Created hardlink for cat.txt and softlink for dog.txt
+-rw-r--r-- 2 root root 13 May 22 20:24 cat_harlink.txt
+-rw-r--r-- 2 root root 13 May 22 20:24 cat.txt
+-rw-r--r-- 1 root root 13 May 22 20:24 dog.txt
+lrwxrwxrwx 1 root root  7 May 22 20:25 dog_softlink.txt -> dog.txt
+
+>> Here, We have renamed the cat.txt (HARD LINK)
+root@L014LPF2VD475:/home/devops/harshada# mv cat.txt catt.txt
+root@L014LPF2VD475:/home/devops/harshada# ls -ltr
+total 12
+-rw-r--r-- 2 root root 13 May 22 20:24 catt.txt
+-rw-r--r-- 2 root root 13 May 22 20:24 cat_harlink.txt
+-rw-r--r-- 1 root root 13 May 22 20:24 dog.txt
+lrwxrwxrwx 1 root root  7 May 22 20:25 dog_softlink.txt -> dog.txt
+
+Now, check the content of both files, catt.txt, cat_harlink.txt
+root@L014LPF2VD475:/home/devops/harshada# cat catt.txt
+This is cat.
+root@L014LPF2VD475:/home/devops/harshada# cat cat_harlink.txt
+This is cat.
+
+>> Here, We have renamed the dog.txt (SOFTLINK)
+root@L014LPF2VD475:/home/devops/harshada# mv dog.txt dogg.txt
+root@L014LPF2VD475:/home/devops/harshada# ls -ltr
+total 12
+-rw-r--r-- 2 root root 13 May 22 20:24 catt.txt
+-rw-r--r-- 2 root root 13 May 22 20:24 cat_harlink.txt
+-rw-r--r-- 1 root root 13 May 22 20:24 dogg.txt
+lrwxrwxrwx 1 root root  7 May 22 20:25 dog_softlink.txt -> dog.txt
+
+Now, check the content of both files, Original renamed, hence link file is not worked
+root@L014LPF2VD475:/home/devops/harshada# cat dogg.txt
+This is dog.
+root@L014LPF2VD475:/home/devops/harshada# cat dog_softlink.txt
+cat: dog_softlink.txt: No such file or directory
+root@L014LPF2VD475:/home/devops/harshada#
