@@ -1,0 +1,365 @@
+Commands and Paths
+------------------
+
+devops@L014LPF2VD475:~$ pwd
+/home/devops
+devops@L014LPF2VD475:~$
+
+sudo su - root
+su - Switch user
+root@L014LPF2VD475:~# pwd
+/root
+root@L014LPF2VD475:~#
+
+/root : home directory of "root" user
+
+~ : root user home directory
+/ : root directory / Filesystem (FS)
+
+cd : Change the directories
+
+absolute path: /home/devops/
+relative path: dir1/kent/
+
+cd .. - > one directory back
+cd ../.. -> two directories back
+
+cd ../../../ -> n number of directoriesback
+
+echo : The echo command is used to repeat or echo the message or argument you give it back
+to the standard oouput device.
+
+Synatx : echo "string/message"
+
+echo "Hello Good Morning"
+
+touch : to create a empty file, (Size of the file = 0)
+
+cat : concatenate a file
+Dispaly the content of a file with concatenate command i.e. cat
+
+Synatx:
+cat [filename]
+
+1 . To display the content[data] of the file
+# cat [filename]
+
+2. To create a new file with content[data]
+# cat > filename
+
+3. To append the content [it will write the data without overwritten into the file]
+# cat >> filename
+
+4. To combine the content of two files
+# cat file1 file2 > combinefile
+e.g. 
+cat hard_link.txt file9.txt > combinef.txt
+
+
+root@L014LPF2VD475:/tmp# cat file9.txt
+This is second line in file.
+This is the file created using cat command.
+root@L014LPF2VD475:/tmp# cat hard_link.txt
+This is Harshada, Completed B.E. in IT, Currently learning Linux.
+I like to read, write the books.
+I love to explore natural beauty.
+root@L014LPF2VD475:/tmp#
+
+new file: combinef.txt
+This is Harshada, Completed B.E. in IT, Currently learning Linux.
+I like to read, write the books.
+I love to explore natural beauty.
+This is second line in file.
+This is the file created using cat command.
+
+stat command:
+# stat filename
+file command:
+# file filename
+
+File display command:
+---------------------
+head : display the start of a file
+
+Syntax:
+head [option] filename
+
+option: 
+-n number -> number of lines to display, counting from top of the file
+
+e.g.
+
+head believer.lyr - > by default head command displays the first 10 lines of the file.
+
+head -15 believer.lyr -> here, we are displying 15 lines
+[or]
+head -n 15 believer.lyr
+
+tail: display the end of a file
+
+Synatx:
+
+tail [option] file
+
+option: 
+-n number -> number of lines to display, counting from top of the file
+e.g. 
+
+tail believer.lyr -> by default tail command displays the l 10 lines of the file.
+
+tail -12 believer.lyr -> here, we are displying 12 lines from bottom
+[or]
+tail -n 12 believer.lyr
+
+
+---------------------------------------------------------------------------------------
+head tail more - these commands display the data on the screen (it consumed some memory)
+less : less command displays the data on runtime on the screen (it consumed less memory)
+
+Syntax:
+less [filename]
+
+eg.
+less believer.lyr
+
+more:
+
+Syntax:
+more [filename]
+
+eg.
+more believer.lyr
+
+Difference between less and more:
+The main difference between more and less is that 
+less command is faster because it does not load the entire file at once 
+and allows navigation though file using page up/down keys.
+
+File Mainenance commands:
+pwd : present working directory
+mkdir: Make/Create directory
+It will create the new directory in your working directory by default.
+
+1. # mkdir dir1
+
+2. dir2/college
+
+root@L014LPF2VD475:/tmp# mkdir dir2/college
+mkdir: cannot create directory ‘dir2/college’: No such file or directory
+root@L014LPF2VD475:/tmp#
+
+Because, dir2 is not present hence above command failed, Hence we have created dir2 directory
+then created college directoryin dir2.
+
+root@L014LPF2VD475:/tmp# mkdir dir2
+root@L014LPF2VD475:/tmp# mkdir dir2/college
+
+3. dir3/college/department
+
+root@L014LPF2VD475:/tmp# mkdir -p dir3/college/department
+root@L014LPF2VD475:/tmp#
+
+rmdir : Remove Directory
+
+1. Directories must be empty before you remove.
+
+Synatx:
+rmdir directory_name
+
+rmdir dir1 -> dir1 was empty hence it removed.
+
+2. To recersively remove nested directories, then use the rm command with the -r option.
+
+Synatx: 
+rm -r directory_name
+
+root@L014LPF2VD475:/tmp# rm -r dir2
+
+3. To delete/remove files provided you have sufficient privilege
+
+Syntax:
+rm filename
+
+eg.
+root@L014LPF2VD475:/tmp# rm file2.xyz
+
+4. To remove file with interaction mode, where you have to give confirmation to delete
+or remove file using command rm with -i option.
+
+
+root@L014LPF2VD475:/tmp# rm -i rename.txt
+rm: remove regular empty file 'rename.txt'? n
+root@L014LPF2VD475:/tmp#
+
+root@L014LPF2VD475:/tmp# rm -i rename.txt
+rm: remove regular empty file 'rename.txt'? y
+root@L014LPF2VD475:/tmp#
+
+-------------------------------------------------------------------------------
+cp:Copies files or directory
+cp command will overwrite unless you specified.
+
+- Copy sample.txt to sample2.txt  
+cp sample.txt sample2.txt 
+When we copy sample.txt and sample2.txt is not present, then it will created.
+If sample2.txt is already present, then it will overwrite the file.
+
+- prompt the file to overwrite using -i option with cp command
+
+root@L014LPF2VD475:/home/devops/harshada# cp -i sample.txt sample2.txt
+cp: overwrite 'sample2.txt'? n
+root@L014LPF2VD475:/home/devops/harshada# cp -i sample.txt sample2.txt
+cp: overwrite 'sample2.txt'? y
+root@L014LPF2VD475:/home/devops/harshada#
+
+- copy file/files to directory
+Syntax:
+cp filename directory_name
+
+root@L014LPF2VD475:/home/devops/harshada# cp sample.txt dir1/
+root@L014LPF2VD475:/home/devops/harshada# ls dir1/
+sample.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+- dir1 is present, want to copy dir1 to dir2 
+here, dir2 is not presnt, then it will create new directory
+
+root@L014LPF2VD475:/home/devops/harshada# cp dir1 dir2
+cp: -r not specified; omitting directory 'dir1'
+root@L014LPF2VD475:/home/devops/harshada# cp -r dir1 dir2
+root@L014LPF2VD475:/home/devops/harshada# ls
+dir1  dir2  sample.txt  sample2.txt  sample3.txt
+root@L014LPF2VD475:/home/devops/harshada# ls dir1
+sample.txt
+root@L014LPF2VD475:/home/devops/harshada# ls dir2
+sample.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+- dir1 and dir2 is present
+Whole/complete dir1 is copied into dir2
+root@L014LPF2VD475:/home/devops/harshada# cp -r dir1 dir2
+root@L014LPF2VD475:/home/devops/harshada# ls dir2/
+dir1  sample.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+- copy more than one file in single command
+Syntax:
+cp file1 file2 directory_name
+cp sample3.txt sample4.txt dir1
+
+-pattern search and copy files to directories
+
+This is not convinient when files are more than 5 or more,
+root@L014LPF2VD475:/home/devops/harshada# cp sample.txt sample2.txt sample3.txt sample4.txt dir1
+root@L014LPF2VD475:/home/devops/harshada# ls dir1/
+sample.txt  sample2.txt  sample3.txt  sample4.txt
+
+Hence, we make pattern search using wildcard * and copy all .txt files to directory
+
+root@L014LPF2VD475:/home/devops/harshada# cp *.txt dir1
+root@L014LPF2VD475:/home/devops/harshada# ls dir1/
+sample.txt  sample2.txt  sample3.txt  sample4.txt
+root@L014LPF2VD475:/home/devops/harshada#
+
+-Files are remove using interaction mode:
+root@L014LPF2VD475:/home/devops/harshada/dir1# ls
+sample.txt  sample2.txt  sample3.txt  sample4.txt
+root@L014LPF2VD475:/home/devops/harshada/dir1# rm sample.txt
+root@L014LPF2VD475:/home/devops/harshada/dir1# ls
+sample2.txt  sample3.txt  sample4.txt
+root@L014LPF2VD475:/home/devops/harshada/dir1# rm -i *
+rm: remove regular file 'sample2.txt'? n
+rm: remove regular file 'sample3.txt'? y
+rm: remove regular file 'sample4.txt'? n
+root@L014LPF2VD475:/home/devops/harshada/dir1# ls
+sample2.txt  sample4.txt
+root@L014LPF2VD475:/home/devops/harshada/dir1# rm *
+root@L014LPF2VD475:/home/devops/harshada/dir1# ls
+root@L014LPF2VD475:/home/devops/harshada/dir1#
+
+01-June-2023
+--------------------------------------------------------------
+mv : Moves files/directories (windows - cut and paste)
+- to rename the file 
+Synatx:
+mv filename newfilename
+mv sample.txt newsample.txt
+
+-move file to directory
+mv newsample.txt dir1
+
+- move file to another filesystem 
+Syntax:
+mv filename filesystem
+mv sample2.txt /tmp
+
+- to ask the confirmation before the operation
+mv -i newsam.txt newsam2.txt
+
+- to rename the directories
+Syntax:
+mv directory new_dir_name
+mv dir1 newdir1
+
+- to move the pattern files to directory using the wildcard * for all the files with some match like .txt
+mv *.txt newdir1
+
+SHELL MetaCharaters:
+* : used to match zero or more charaters in the filename
+? : used to match any one character in filename
+
+Directory contains below files-
+ABC  ABC2  Abc  a1  a11  a12  a2  a3  ab  abc  ba  ba.1  ba.2  filex  filey
+
+1. List all files starting with a
+ls a*
+
+2. List all files starting with b
+ls b*
+
+3. List all files with at least one digit ending 
+ls *[0-9]
+
+range - digit [0-9]
+
+4. List all files starting with a or A
+ls [aA]*
+
+5. List all files ending with any two digit e.g. 10/11/12/../99
+ls *[0-1][0-2] - this range is for given data
+ls *[0-9][0-9] - this range is for general data which have two digits
+
+6. List all files ending with x or y
+ls *[xy]
+
+7. List all files not starting with a or b or B
+ls [!abB]*
+
+8. List all files ending with a period (.) follwed by a digit
+ls *.[0-9]
+
+--------------
+
+file ownership : chown
+file permission : chmod
+file rename : mv
+dir rename : mv
+file last 10 lines print : tail
+complete file view/display : cat 
+given message print: echo
+file backup : hardlink (ln filename), cp
+complete directory with content delete : rm -r /dir_name
+copy all files to your home directory having extension .sh: cp *.sh /home/vaishali
+where all configuration of application stored: /etc
+how to disply hidden files: ls -a
+system libraries : /libc
+system binaries: /binaries
+
+-rwxr__rw_ : 746
+
+755 : rwx r-x r-x
+
+Linux : Shell ?
+Shell program, command interepreter
+
+Operating System Kernel?
