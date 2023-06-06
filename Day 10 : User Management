@@ -1,0 +1,179 @@
+you can check your Ubuntu version using any of the following methods:
+
+Use the lsb_release -a command.
+Use the /etc/lsb-release or /etc/os-release command.
+Check the /etc/issue file.
+Use the hostnamectl command.
+Check the Ubuntu version in your GUI settings
+
+lsb_release command shows you details about your Linux distribution
+lsb_release -a
+cat /etc/lsb-release
+cat /etc/os-release
+cat /etc/issue
+
+RHEL Version: /etc/redhat-releases
+
+User Management:
+
+To display or view all the users on Linux OS: /etc/passwd
+
+Types of User:
+1. Super or root user
+2. System User
+3. Normal user
+
+User Creation:
+useradd username -> centos/RHEL
+
+Ubuntu: Version
+
+adduser <username>
+
+1. If you are signed in as the "root" user, you can create a new user at any time by using the following command:
+adduser <username>
+
+root@L014LPF2VD475:/home# adduser vaishali
+Adding user `vaishali' ...
+Adding new group `vaishali' (1003) ...
+Adding new user `vaishali' (1003) with group `vaishali' ...
+Creating home directory `/home/vaishali' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for vaishali
+Enter the new value, or press ENTER for the default
+        Full Name []: Vaishali
+        Room Number []: 101
+        Work Phone []: 0
+        Home Phone []: 0
+        Other []: Engineer
+Is the information correct? [Y/n] Y
+root@L014LPF2VD475:/home#
+
+root@L014LPF2VD475:/home# id vaishali
+uid=1003(vaishali) gid=1003(vaishali) groups=1003(vaishali)
+root@L014LPF2VD475:/home# cat /etc/passwd| grep vaishali
+vaishali:x:1003:1003:Vaishali,101,0,0,Engineer:/home/vaishali:/bin/bash
+root@L014LPF2VD475:/home# cd /home/vaishali/
+root@L014LPF2VD475:/home/vaishali# pwd
+/home/vaishali
+root@L014LPF2VD475:/home/vaishali# ls -ltra
+total 20
+drwxr-xr-x 6 root     root     4096 Jun  5 09:34 ..
+-rw-r--r-- 1 vaishali vaishali  807 Jun  5 09:34 .profile
+-rw-r--r-- 1 vaishali vaishali 3771 Jun  5 09:34 .bashrc
+-rw-r--r-- 1 vaishali vaishali  220 Jun  5 09:34 .bash_logout
+drwxr-x--- 2 vaishali vaishali 4096 Jun  5 09:34 .
+root@L014LPF2VD475:/home/vaishali# cd /etc/skel/
+root@L014LPF2VD475:/etc/skel# ls -ltra
+total 20
+-rw-r--r--  1 root root  807 Jan  6  2022 .profile
+-rw-r--r--  1 root root 3771 Jan  6  2022 .bashrc
+-rw-r--r--  1 root root  220 Jan  6  2022 .bash_logout
+drwxr-xr-x  2 root root 4096 Jan  4 03:10 .
+drwxr-xr-x 73 root root 4096 Jun  5 09:35 ..
+root@L014LPF2VD475:/etc/skel#
+
+2. If you are singed in as the "non-root" user who has been given sudo privilege, you can create or add a new use
+with the following command:
+sudo adduser <username>
+
+devops@L014LPF2VD475:~$ adduser shubhali
+adduser: Only root may add a user or group to the system.
+devops@L014LPF2VD475:~$
+
+devops@L014LPF2VD475:~$ sudo adduser shubhali
+[sudo] password for devops:
+Adding user `shubhali' ...
+Adding new group `shubhali' (1004) ...
+Adding new user `shubhali' (1004) with group `shubhali' ...
+Creating home directory `/home/shubhali' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for shubhali
+Enter the new value, or press ENTER for the default
+        Full Name []: Shubhali
+        Room Number []: 102
+        Work Phone []: 0
+        Home Phone []: 0
+        Other []: Kid
+Is the information correct? [Y/n] Y
+devops@L014LPF2VD475:~$ id shubhali
+uid=1004(shubhali) gid=1004(shubhali) groups=1004(shubhali)
+devops@L014LPF2VD475:~$ cat /etc/passwd|grep shubhali
+shubhali:x:1004:1004:Shubhali,102,0,0,Kid:/home/shubhali:/bin/bash
+
+As devops user has no rights to access the shubhali home directory, hence its permission denied.
+Here, shubhali home directory can access by user shubhali or root as super user only.
+devops@L014LPF2VD475:~$ cd /home/shubhali/
+-bash: cd: /home/shubhali/: Permission denied
+
+Significance of /etc/skel:
+Copying files from `/etc/skel' ...
+
+Whenever new user has been created on the operating system, default and require files like .profile,.bashrc,.bash_logout copied from 
+/etc/skel, to the home directory of the new user.
+/etc/skel is a skeleton directory for the newly created user.
+
+
+User Modification:
+
+User can be modified using usermod command
+
+Here, /etc/sudoers file has ownership of root and we try to access this file but getting below error,
+
+shubhali@L014LPF2VD475:/root$ sudo cat /etc/sudoers
+[sudo] password for shubhali:
+shubhali is not in the sudoers file.  This incident will be reported.
+shubhali@L014LPF2VD475:/root$
+
+After the user modification where we have provided the sudo access to user i.e. vaishali
+root@L014LPF2VD475:~# usermod -aG sudo vaishali
+
+Now, try to access the /etc/sudoers file from vaishali home directory, its accessible,
+
+root@L014LPF2VD475:~# su vaishali
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+vaishali@L014LPF2VD475:/root$ sudo cat /etc/sudoers
+[sudo] password for vaishali:
+
+Specifying explicit User privileges in /etc/sudoers:
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+
+for normal user to have sudo access, (same like root access but his/her own root privileges)
+vaishali ALL=(ALL:ALL) ALL
+
+
+Remove or deletion of users:
+
+1. To delete user itself, without deleting any of thier files from home directory
+
+deluser username 
+
+deluser shubhali 
+
+root@L014LPF2VD475:/home# deluser shubhali
+Removing user `shubhali' ...
+Warning: group `shubhali' has no more members.
+Done.
+root@L014LPF2VD475:/home#
+
+2. To delete the user and user's home directory when the user is deleted.
+
+deluser --remove-home username
+
+root@L014LPF2VD475:/home# deluser --remove-home sunny
+Looking for files to backup/remove ...
+Removing files ...
+Removing user `sunny' ...
+Warning: group `sunny' has no more members.
+Done.
+root@L014LPF2VD475:/home#
