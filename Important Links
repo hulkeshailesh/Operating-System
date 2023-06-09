@@ -3,5 +3,7 @@ https://releases.ubuntu.com/18.04.6/?_ga=2.155670072.2016266166.1685849130-73131
 
 Select : Server install image - > 64-bit PC (AMD64) server install image
 
+SWAP SPACE:
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace#:~:text=Swap%20space%20in%20Linux%20is,a%20replacement%20for%20more%20RAM.
 
 
